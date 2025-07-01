@@ -1,0 +1,60 @@
+@use "./media" as *;
+
+:root {
+  --primary-color-dark: #000000;
+  --primary-color-light: #ffffff;
+
+  --color-gray-secondary: rgb(60, 60, 67, 0.6);
+  --color-gray-tertiary: rgb(60, 60, 67, 0.3);
+  --color-gray-quaternary: rgb(60, 60, 67, 0.18);
+
+  --color-light-secondary: rgb(235, 235, 245, 0.6);
+  --color-light-tertiary: rgb(235, 235, 245, 0.3);
+  --color-light-quaternary: rgb(235, 235, 245, 0.18);
+
+  --color-primary-900: #1f1d47;
+  --color-primary-700: #48319d;
+  --color-primary-400: #c427fb;
+  --color-primary-200: #e0d9ff;
+
+  --gradient-linear-900: linear-gradient(0deg, #2e335a 0%, #1c1b33 100%);
+  --gradient-linear-700: linear-gradient(0deg, #5936b4 0%, #362a84 100%);
+  --gradient-linear-500: linear-gradient(
+    0deg,
+    #aec9ff 0%,
+    #aec9ff 55%,
+    #083072 100%
+  );
+  --gradient-linear-400: linear-gradient(0deg, #427bd1 0%, #c159ec 100%);
+
+  --gradient-radial: radial-gradient(at 20% 100%, #f7cbfd 0%, #7758d1 100%);
+
+  --gradient-angular: conic-gradient(
+    rgba(97, 47, 171, 0) 14% 36%,
+    #612fab 36% 63%,
+    rgba(97, 47, 171, 0) 63% 75%,
+    #612fab 75% 100%
+  );
+
+  --font-family-base: "SFProDisplay", sans-serif;
+  --font-family-second: "SFProText", sans-serif;
+
+  --container-padding-x: 24px;
+
+  --input-height: 36px;
+
+  --icon-size: 54px;
+  --icon-weather-size: 48px;
+
+  --shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+
+  --transition-duration: 0.3s;
+}
+
+@include mobile {
+  :root {
+    --icon-size: 40px;
+
+    --icon-weather-size: 32px;
+  }
+}

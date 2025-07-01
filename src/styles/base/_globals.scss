@@ -1,0 +1,42 @@
+@use "../abstracts/media" as *;
+@use "../abstracts/mixins" as *;
+
+body {
+  @include fluid-text(24, 20);
+
+  height: 100vh;
+  font-family: var(--font-family-base);
+  line-height: 1.5;
+  color: var(--primary-color-light);
+  background: var(--gradient-linear-400);
+  background-repeat: no-repeat;
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#root {
+  min-height: 100%;
+}
+
+.container {
+  position: relative;
+  max-width: 1232px;
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: var(--container-padding-x);
+}
+
+main {
+  height: 100vh;
+}
