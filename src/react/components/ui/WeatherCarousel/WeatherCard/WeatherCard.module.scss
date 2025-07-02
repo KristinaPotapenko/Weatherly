@@ -1,0 +1,54 @@
+@use "../../../../../styles/abstracts/mixins" as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 60px;
+  height: 100%;
+  padding: 16px 8px;
+  background-color: var(--color-primary-700-20);
+  border: 1px solid var(--color-light-secondary);
+  border-radius: 30px;
+  box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 25%), inset 1px 1px 0px 0px #ffffff;
+}
+
+.card.current {
+  background-color: var(--color-primary-700);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.infoTime,
+.infoDegrees {
+  color: var(--primary-color-light);
+}
+
+.info {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.infoTemperature {
+  align-content: end;
+  flex-grow: 1;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.4px;
+}
+
+.info.accent {
+  margin-bottom: 4px;
+  color: #40cbd8;
+}
+
+.image {
+  @include square(32px);
+}
