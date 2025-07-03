@@ -1,0 +1,44 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 5%;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+}
+
+.subtitle {
+  font-size: 96px;
+  font-weight: 300;
+  line-height: 0.8;
+  letter-spacing: 0.4px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.descriptions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.description,
+.descriptionLight {
+  font-weight: 500;
+  color: var(--color-light-secondary);
+}
+
+.descriptionLight {
+  font-weight: 700;
+  color: var(--primary-color-light);
+}
