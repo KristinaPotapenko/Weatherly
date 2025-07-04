@@ -1,0 +1,33 @@
+@use "../../../styles/abstracts/mixins" as *;
+
+.home {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-position: center center;
+  background-size: cover;
+}
+
+.homeLightBg {
+  background-image: url("/src/assets/home-light-bg.jpg");
+}
+
+.homeDarkBg {
+  background-image: url("/src/assets/home-dark-bg.png");
+}
+
+.decorationImage {
+  @include square(100%);
+
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  max-width: 390px;
+  max-height: 390px;
+  background-image: url("/src/assets/house.png");
+  background-position: center center;
+  background-size: cover;
+  transform: translate(50%, -40%);
+}
