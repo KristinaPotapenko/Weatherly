@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import cl from "classnames";
 import { weatherDescriptions } from "../../../../utils/weatherDescriptions";
 
 import styles from "./Content.module.scss";
@@ -27,10 +28,10 @@ export const Content = ({ city, country, info }: ContentProps): JSX.Element => {
           {weatherDescriptions[info.weathercode]}
         </p>
         <div className={styles.descriptions}>
-          <p className={styles.descriptionLight}>
+          <p className={cl(styles.description, styles.descriptionBold)}>
             H:{info.maxTemperature.toFixed(0)}°
           </p>
-          <p className={styles.descriptionLight}>
+          <p className={cl(styles.description, styles.descriptionBold)}>
             L:{info.minTemperature.toFixed(0)}°
           </p>
         </div>

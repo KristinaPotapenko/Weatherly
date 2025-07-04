@@ -1,7 +1,11 @@
-.content {
+.content,
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.content {
   gap: 12px;
   margin-top: 5%;
 }
@@ -10,6 +14,7 @@
   font-size: 34px;
   font-weight: 400;
   letter-spacing: 0.4px;
+  text-align: center;
 }
 
 .subtitle {
@@ -20,9 +25,6 @@
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 4px;
 }
 
@@ -32,13 +34,11 @@
   gap: 8px;
 }
 
-.description,
-.descriptionLight {
+.description {
   font-weight: 500;
-  color: var(--color-light-secondary);
+  color: var(--primary-color-light);
 }
 
-.descriptionLight {
+.descriptionBold {
   font-weight: 700;
-  color: var(--primary-color-light);
 }
