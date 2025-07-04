@@ -1,5 +1,58 @@
+@use "../../../../styles/abstracts/media" as *;
+
 .carousel {
   display: flex;
   align-items: center;
-  gap: 10%;
+  justify-content: flex-start;
+  justify-content: safe center;
+  gap: 10px;
+  z-index: 10;
+  width: 100%;
+  max-width: 800px;
+  min-height: 200px;
+  margin-bottom: 30px;
+  padding: 0 16px 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  @include tablet {
+    max-width: 600px;
+  }
+
+  @include mobile {
+    max-width: 350px;
+  }
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(174, 201, 255, 0.6) 50%,
+      rgba(8, 48, 114, 0.7) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(174, 201, 255, 0.8) 50%,
+      rgba(8, 48, 114, 0.9) 100%
+    );
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+  }
 }
