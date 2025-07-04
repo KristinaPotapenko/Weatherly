@@ -1,0 +1,75 @@
+@use "../../../../styles/abstracts/mixins" as *;
+
+.wrapper {
+  @include flex-center;
+
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    width: 260px;
+    height: 100px;
+    background: url("/src/assets/button-bg.png") no-repeat center/cover;
+  }
+}
+
+.darkLayer {
+  @include square(66px);
+
+  position: relative;
+  border-radius: 50%;
+}
+
+.blur {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    130deg,
+    rgba(0, 0, 0, 0.6),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+.content {
+  @include flex-center;
+  @include square(66px);
+
+  position: relative;
+  z-index: 2;
+}
+
+.lightLayer {
+  @include flex-center;
+  @include square(60px);
+
+  background: linear-gradient(180deg, #fff 0%, rgba(174, 174, 174, 0) 100%);
+  backdrop-filter: blur(2px);
+  border-radius: 50%;
+  box-shadow: inset 1px 1px 3.5px #fff, 0 0 2px rgba(255, 255, 255, 0.4),
+    0 0 2px rgba(13, 17, 68, 0.4);
+}
+
+.link {
+  @include flex-center;
+  @include square(56px);
+
+  background: linear-gradient(
+    130deg,
+    rgba(255, 255, 255, 0),
+    rgba(187, 191, 199, 0.6)
+  );
+  border-radius: 50%;
+  cursor: pointer;
+
+  svg {
+    @include square(var(--icon-size));
+
+    color: var(--color-primary-700);
+  }
+}
