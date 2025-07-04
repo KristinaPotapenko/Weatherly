@@ -1,0 +1,19 @@
+@use "../../../../styles/abstracts/media" as *;
+@use "../../../../styles/abstracts/mixins" as *;
+
+.link {
+  @include square(var(--icon-size));
+
+  display: block;
+  z-index: 10;
+  transition: transform ease-in 0.3s;
+  cursor: pointer;
+
+  @include hover {
+    transform: scale(1.1);
+  }
+
+  svg {
+    @include square(100%);
+  }
+}
