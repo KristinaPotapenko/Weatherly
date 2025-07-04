@@ -1,0 +1,23 @@
+@use "../../../../styles/abstracts/media" as *;
+
+.navigation {
+  width: 60%;
+
+  @include tablet {
+    width: 70%;
+  }
+
+  @include mobile-s {
+    width: 100%;
+  }
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.itemTop {
+  z-index: 10;
+}
