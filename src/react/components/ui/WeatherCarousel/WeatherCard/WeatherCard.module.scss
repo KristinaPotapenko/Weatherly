@@ -12,6 +12,7 @@
   border: 1px solid var(--color-light-secondary);
   border-radius: 30px;
   box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 25%), inset 1px 1px 0px 0px #ffffff;
+  scroll-snap-align: start;
 }
 
 .card.current {
@@ -30,15 +31,23 @@
   color: var(--primary-color-light);
 }
 
+.info,
+.infoTemperature {
+  white-space: nowrap;
+}
+
 .info {
   font-size: 16px;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
 
-.infoTemperature {
-  align-content: end;
+.temperature {
   flex-grow: 1;
+  align-content: end;
+}
+
+.infoTemperature {
   font-size: 20px;
   font-weight: 400;
   letter-spacing: -0.4px;
@@ -49,6 +58,6 @@
   color: #40cbd8;
 }
 
-.image {
+.icon {
   @include square(32px);
 }
