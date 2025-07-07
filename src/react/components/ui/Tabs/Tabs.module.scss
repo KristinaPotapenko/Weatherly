@@ -6,13 +6,12 @@
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  padding-inline: 12px;
   margin-bottom: 24px;
+  padding-inline: 12px;
   transition: all ease 0.3s;
 
   &::after {
     content: "";
-
     position: absolute;
     right: -20px;
     bottom: -8px;
@@ -24,32 +23,12 @@
       rgba(255, 255, 255, 0.7) 25%,
       rgba(255, 255, 255, 0) 50%
     );
-    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 20%);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    z-index: 0;
   }
 
-  .button {
-    @include reset-button;
-    @include fluid-text(20, 16);
-
-    font-weight: 600;
-    letter-spacing: -0.5px;
-    color: var(--color-light-secondary);
-    cursor: pointer;
-
-    &:focus,
-    &:hover {
-      color: var(--primary-color-light);
-    }
-
-    &Active {
-      color: var(--primary-color-light);
-    }
-  }
-}
-
-.tabs.activeSecondTab {
-  &::after {
-    content: "";
+  &.activeSecondTab::after {
     background: linear-gradient(
       90deg,
       rgba(255, 255, 255, 0) 50%,
@@ -57,4 +36,42 @@
       rgba(255, 255, 255, 0) 95%
     );
   }
+
+  .button {
+    @include reset-button;
+
+    position: relative;
+    padding: 8px 16px;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 600;
+    color: var(--color-light-secondary);
+    outline: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: var(--primary-color-light);
+    }
+
+    &.buttonActive {
+      color: var(--primary-color-light);
+    }
+  }
+}
+
+.underline {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  z-index: 1;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  border-radius: 3px;
 }
