@@ -42,7 +42,14 @@ export const Home = (): JSX.Element => {
         [styles.homeDarkBg]: nowHours >= 20 || nowHours < 4,
       })}
     >
-      <div className={styles.decorationImage}></div>
+      <div className={styles.cloudLayer + " " + styles.cloudLayer1}></div>
+      <div className={styles.cloudLayer + " " + styles.cloudLayer2}></div>
+      <div className={styles.cloudLayer + " " + styles.cloudLayer3}></div>
+      <div className={styles.decorationImage}>
+        <div className={styles.smoke}></div>
+        <div className={styles.smoke} style={{ animationDelay: "1s" }}></div>
+        <div className={styles.smoke} style={{ animationDelay: "2s" }}></div>
+      </div>
       <Content city={city} country={country} info={weatherInfo} />
       <Forecast />
     </div>
