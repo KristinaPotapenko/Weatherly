@@ -5,6 +5,7 @@ import {
 } from "@reduxjs/toolkit";
 import axios from "axios";
 import type { RootState } from "../store";
+import { setError, setLoading } from "../appStatusSlice";
 
 interface WeatherHourly {
   precipitation: number[];
@@ -85,10 +86,10 @@ const weatherSlice = createSlice({
       state.daily.time = timeDaily;
       state.daily.weathercode = weathercodeDaily;
 
-      state.hourly.precipitation = precipitation.slice(0, 23);
-      state.hourly.temperature = temperature_2m.slice(0, 23);
-      state.hourly.time = timeHourly.slice(0, 23);
-      state.hourly.weathercode = weathercodeHourly.slice(0, 23);
+      state.hourly.precipitation = precipitation.slice(0, 24);
+      state.hourly.temperature = temperature_2m.slice(0, 24);
+      state.hourly.time = timeHourly.slice(0, 24);
+      state.hourly.weathercode = weathercodeHourly.slice(0, 24);
 
       state.maxTemperature = temperature_2m_max[0];
       state.minTemperature = temperature_2m_min[0];
@@ -133,6 +134,9 @@ interface WeatherApiResponse {
 export const getWeatherData = createAsyncThunk(
   "weatherSlice/getWeatherData",
   async ({ latitude, longitude }: WeatherParams, thunkAPI) => {
+    const { dispatch } = thunkAPI;
+    dispatch(setLoading(true));
+
     try {
       const response = await axios.get<WeatherApiResponse>(
         `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,precipitation,weathercode&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode&current_weather=true&timezone=auto`
@@ -153,7 +157,11 @@ export const getWeatherData = createAsyncThunk(
       } else if (error instanceof Error) {
         message = error.message;
       }
+
+      dispatch(setError(message));
       return thunkAPI.rejectWithValue(message);
+    } finally {
+      dispatch(setLoading(false));
     }
   }
 );

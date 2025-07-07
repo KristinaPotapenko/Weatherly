@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { setError, setLoading } from "../appStatusSlice";
 
 export interface LocationState {
   city?: string;
@@ -35,6 +36,9 @@ export default userLocationSlice.reducer;
 export const getUserLocationData = createAsyncThunk(
   "userLocationSlice/getUserLocationData",
   async (_, thunkAPI) => {
+    const { dispatch } = thunkAPI;
+    dispatch(setLoading(true));
+
     try {
       const response = await axios.get("https://ipwho.is/");
 
@@ -48,7 +52,10 @@ export const getUserLocationData = createAsyncThunk(
         message = error.message;
       }
 
+      dispatch(setError(message));
       return thunkAPI.rejectWithValue(message);
+    } finally {
+      dispatch(setLoading(false));
     }
   }
 );
