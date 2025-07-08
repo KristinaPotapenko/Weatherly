@@ -4,12 +4,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import userLocationReducer from "./userLocation/userLocationSlice";
 import weatherReducer from "./weather/weatherSlice";
 import appStatusReducer from "./appStatusSlice";
+import geocodingReducer from "./geocoding/geocodingSlice";
 
 export const store = configureStore({
   reducer: {
     userLocation: userLocationReducer,
     weather: weatherReducer,
     status: appStatusReducer,
+    geocoding: geocodingReducer,
   },
 });
 
