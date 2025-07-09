@@ -6,7 +6,11 @@ import { formattedTime } from "../../../scripts/helpers/formattedTime";
 
 import { WeatherCard } from "../ui/WeatherCarousel/WeatherCard/WeatherCard";
 
-export const HourlyForecast = () => {
+interface HourlyForecastProps {
+  city: string;
+}
+
+export const HourlyForecast = ({ city }: HourlyForecastProps) => {
   const hourlyWeather = useSelector(selectHourly);
 
   const nowTime = new Date();
@@ -27,6 +31,7 @@ export const HourlyForecast = () => {
               }
               temperature={Number(hourlyWeather.temperature[index])}
               isCurrent={formattedTime(String(nowTime)) === formattedTime(hour)}
+              city={city}
             />
           );
         })}
