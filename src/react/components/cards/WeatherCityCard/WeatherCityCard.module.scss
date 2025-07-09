@@ -1,3 +1,4 @@
+@use "../../../../styles/abstracts/media" as *;
 @use "../../../../styles/abstracts/mixins" as *;
 
 .card {
@@ -71,9 +72,23 @@
 }
 
 .image {
-  @include square(140px);
+  @include square(260px);
 
   position: absolute;
-  top: 0;
+  top: -70px;
   right: 40px;
+
+  @include mobile {
+    @include square(200px);
+
+    top: -20px;
+    right: 20px;
+  }
+
+  @include mobile-s {
+    @include square(160px);
+
+    top: 0;
+    right: 0;
+  }
 }
