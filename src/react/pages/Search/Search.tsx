@@ -7,6 +7,10 @@ import { getGeocoding } from "../../../features/geocoding/geocodingSlice";
 import { Input } from "../../components/ui/Input/Input";
 import { WeatherCityList } from "../../sections/Forecast/WeatherCityList/WeatherCityList";
 
+import styles from "./Search.module.scss";
+import { CloudBg } from "../../components/decoration/CloudBg/CloudBg";
+import { Title } from "../../components/ui/Title/Title";
+
 export const Search = () => {
   const dispatch = useDispatch<AppDispatch>();
 
@@ -28,17 +32,22 @@ export const Search = () => {
   }, [debouncedCity]);
 
   return (
-    <section className="container">
-      <h1>Weather</h1>
-      <Input
-        type="text"
-        name="city"
-        value={city}
-        placeholder=" Search for a city"
-        onChange={({ target }) => setCity(target.value)}
-        icon="search"
-      />
-      <WeatherCityList />
-    </section>
+    <div className={styles.bg}>
+      <section className={`container ${styles.wrapper}`}>
+        <div className={styles.cloud}>
+          <CloudBg />
+        </div>
+        <Title className={styles.title}>Weather</Title>
+        <Input
+          type="text"
+          name="city"
+          value={city}
+          placeholder=" Search for a city"
+          onChange={({ target }) => setCity(target.value)}
+          icon="search"
+        />
+        <WeatherCityList />
+      </section>
+    </div>
   );
 };
