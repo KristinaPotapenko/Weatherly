@@ -1,6 +1,7 @@
 import { type JSX } from "react";
 import cl from "classnames";
 
+import { getRouteWithParams } from "../../../../scripts/helpers/getRouteWithParams";
 import { ROUTES } from "../../../../routes/routes";
 
 import { NavLink } from "../NavLink/NavLink";
@@ -8,7 +9,11 @@ import { FloatingLink } from "../FloatingLink/FloatingLink";
 
 import styles from "./Navigation.module.scss";
 
-export const Navigation = (): JSX.Element => {
+interface NavigationProps {
+  city: string;
+}
+
+export const Navigation = ({ city }: NavigationProps): JSX.Element => {
   return (
     <nav className={styles.navigation}>
       <ul className={styles.list}>
@@ -19,7 +24,10 @@ export const Navigation = (): JSX.Element => {
           <FloatingLink path={ROUTES.SEARCH} />
         </li>
         <li className={cl(styles.item, styles.itemTop)}>
-          <NavLink path={ROUTES.FORECAST} icon="list" />
+          <NavLink
+            path={getRouteWithParams(ROUTES.FORECAST, "city", city)}
+            icon="list"
+          />
         </li>
       </ul>
     </nav>
