@@ -81,9 +81,11 @@ export const WeatherCityList = () => {
 
   return (
     <ul className={styles.list}>
-      {geocoding.latitude && weatherData.currentTemperature && (
-        <WeatherCityCard geocoding={geocoding} weatherData={weatherData} />
-      )}
+      {!cities.includes(geocoding.name || "") &&
+        geocoding.latitude &&
+        weatherData.currentTemperature && (
+          <WeatherCityCard geocoding={geocoding} weatherData={weatherData} />
+        )}
       {citiesWeather.map((item, index) => (
         <WeatherCityCard
           key={index}
