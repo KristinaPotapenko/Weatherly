@@ -5,7 +5,11 @@ import { weatherIcon } from "../../../utils/weatherIcon";
 
 import { WeatherCard } from "../ui/WeatherCarousel/WeatherCard/WeatherCard";
 
-export const WeeklyForecast = () => {
+interface WeeklyForecastProps {
+  city: string;
+}
+
+export const WeeklyForecast = ({ city }: WeeklyForecastProps) => {
   const dailyWeather = useSelector(selectDaily);
 
   const nowTime = new Date();
@@ -35,6 +39,7 @@ export const WeeklyForecast = () => {
             temperatureMin={Number(dailyWeather.temperatureMin[index])}
             temperatureMax={Number(dailyWeather.temperatureMax[index])}
             isCurrent={parseInt(day.slice(-2)) === nowDay}
+            city={city}
           />
         );
       })}
