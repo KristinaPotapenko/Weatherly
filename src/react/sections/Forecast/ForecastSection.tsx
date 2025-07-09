@@ -3,9 +3,15 @@ import { Tabs } from "../../components/ui/Tabs/Tabs";
 import { WeatherCarousel } from "../../components/ui/WeatherCarousel/WeatherCarousel";
 import { Navigation } from "../../components/ui/Navigation/Navigation";
 
-import styles from "./Forecast.module.scss";
+import styles from "./ForecastSection.module.scss";
 
-export const Forecast = (): JSX.Element => {
+interface ForecastSectionProps {
+  city: string;
+}
+
+export const ForecastSection = ({
+  city,
+}: ForecastSectionProps): JSX.Element => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   return (
@@ -16,8 +22,8 @@ export const Forecast = (): JSX.Element => {
         activeTab={activeTab}
         onChange={setActiveTab}
       />
-      <WeatherCarousel activeTab={activeTab} />
-      <Navigation />
+      <WeatherCarousel activeTab={activeTab} city={city} />
+      <Navigation city={city} />
     </div>
   );
 };
