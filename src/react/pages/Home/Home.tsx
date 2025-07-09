@@ -10,7 +10,8 @@ import {
 import { getUserLocationData } from "../../../features/userLocation/userLocationSlice";
 
 import { Content } from "./Content/Content";
-import { Forecast } from "../../sections/Forecast/Forecast";
+import { ForecastSection } from "../../sections/Forecast/ForecastSection";
+import { CloudBg } from "../../components/decoration/CloudBg/CloudBg";
 
 import styles from "./Home.module.scss";
 
@@ -42,16 +43,14 @@ export const Home = (): JSX.Element => {
         [styles.homeDarkBg]: nowHours >= 20 || nowHours < 4,
       })}
     >
-      <div className={styles.cloudLayer + " " + styles.cloudLayer1}></div>
-      <div className={styles.cloudLayer + " " + styles.cloudLayer2}></div>
-      <div className={styles.cloudLayer + " " + styles.cloudLayer3}></div>
+      <CloudBg />
       <div className={styles.decorationImage}>
         <div className={styles.smoke}></div>
         <div className={styles.smoke} style={{ animationDelay: "1s" }}></div>
         <div className={styles.smoke} style={{ animationDelay: "2s" }}></div>
       </div>
       <Content city={city} country={country} info={weatherInfo} />
-      <Forecast />
+      <ForecastSection city={city || ""} />
     </div>
   );
 };
