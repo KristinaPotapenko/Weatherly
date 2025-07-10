@@ -33,11 +33,11 @@ export const WeatherCard = ({
         <div className={styles.wrapper}>
           <img
             className={styles.icon}
-            src={`src/assets/${props.icon}.svg`}
+            src={`/src/assets/weather/${props.icon}.svg`}
             alt="Weather"
             onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
               e.currentTarget.onerror = null;
-              e.currentTarget.src = "src/assets/w_2.svg";
+              e.currentTarget.src = "src/assets/weather/w_2.svg";
             }}
           />
           {props.rainfall && (
