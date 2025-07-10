@@ -15,8 +15,6 @@ export const WeatherCarousel = ({
   activeTab,
   city,
 }: WeatherCarouselProps): JSX.Element => {
-  console.log(city);
-
   return (
     <AnimatePresence mode="wait">
       <motion.ul
