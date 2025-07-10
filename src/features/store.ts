@@ -5,6 +5,7 @@ import userLocationReducer from "./userLocation/userLocationSlice";
 import weatherReducer from "./weather/weatherSlice";
 import appStatusReducer from "./appStatusSlice";
 import geocodingReducer from "./geocoding/geocodingSlice";
+import qualityReducer from "./quality/qualitySlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     weather: weatherReducer,
     status: appStatusReducer,
     geocoding: geocodingReducer,
+    quality: qualityReducer,
   },
 });
 
