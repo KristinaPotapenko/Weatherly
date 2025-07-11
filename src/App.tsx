@@ -1,8 +1,10 @@
 import type { JSX } from "react";
-import { AppRoutes } from "./routes/Routes/AppRoutes";
-import { Loader } from "./react/popups/Loader/Loader";
 import { useSelector } from "react-redux";
+
+import { AppRoutes } from "./routes/Routes/AppRoutes";
 import { selectLoading } from "./features/appStatusSlice";
+
+import { Loader } from "./react/popups/Loader/Loader";
 
 function App(): JSX.Element {
   const isLoading = useSelector(selectLoading);
