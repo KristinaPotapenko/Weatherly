@@ -1,0 +1,31 @@
+.dialContainer {
+  position: relative;
+  text-align: center;
+}
+
+.dialSvg {
+  display: block;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.dialLine {
+  stroke: var(--color-light-tertiary);
+  stroke-width: 3;
+  transition: stroke 0.3s ease;
+}
+
+.dialLine.active {
+  stroke: var(--primary-color-light);
+}
+
+.dialLine.lastActive {
+  stroke-width: 6;
+}
+
+.pressureText {
+  z-index: 2;
+  font-size: 14px;
+  font-weight: bold;
+  fill: var(--primary-color-light);
+}
