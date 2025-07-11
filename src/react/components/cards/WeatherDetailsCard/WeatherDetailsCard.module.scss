@@ -1,0 +1,30 @@
+@use "../../../../styles/abstracts/mixins" as *;
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  padding: 40px;
+  background: var(--gradient-linear-700);
+  border: 1px solid var(--color-light-quaternary);
+  border-radius: var(--border-radius-small);
+  overflow: hidden;
+}
+
+.categories {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  svg {
+    @include square(24px);
+  }
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-light-secondary);
+}
