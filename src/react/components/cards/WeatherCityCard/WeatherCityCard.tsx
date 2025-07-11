@@ -58,7 +58,9 @@ export const WeatherCityCard = ({
           </div>
           <img
             className={styles.image}
-            src={`/src/assets/${weatherIcon[weatherData.weathercode]}.svg`}
+            src={`/src/assets/weather/${
+              weatherIcon[weatherData.weathercode]
+            }.svg`}
             alt="Weather"
           />
         </div>
