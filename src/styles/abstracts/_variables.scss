@@ -4,13 +4,13 @@
   --primary-color-dark: #000000;
   --primary-color-light: #ffffff;
 
-  --color-gray-secondary: rgb(60, 60, 67, 0.6);
-  --color-gray-tertiary: rgb(60, 60, 67, 0.3);
-  --color-gray-quaternary: rgb(60, 60, 67, 0.18);
+  --color-gray-secondary: rgba(60, 60, 67, 0.6);
+  --color-gray-tertiary: rgba(60, 60, 67, 0.3);
+  --color-gray-quaternary: rgba(60, 60, 67, 0.18);
 
-  --color-light-secondary: rgb(235, 235, 245, 0.6);
-  --color-light-tertiary: rgb(235, 235, 245, 0.3);
-  --color-light-quaternary: rgb(235, 235, 245, 0.18);
+  --color-light-secondary: rgba(235, 235, 245, 0.6);
+  --color-light-tertiary: rgba(235, 235, 245, 0.3);
+  --color-light-quaternary: rgba(235, 235, 245, 0.18);
 
   --color-primary-900: #1f1d47;
   --color-primary-700: rgb(72, 49, 157);
@@ -34,13 +34,6 @@
   --gradient-linear-400: linear-gradient(0deg, #427bd1 0%, #c159ec 100%);
 
   --gradient-radial: radial-gradient(at 20% 100%, #f7cbfd 0%, #7758d1 100%);
-
-  --gradient-angular: conic-gradient(
-    rgba(97, 47, 171, 0) 14% 36%,
-    #612fab 36% 63%,
-    rgba(97, 47, 171, 0) 63% 75%,
-    #612fab 75% 100%
-  );
 
   --border-radius-small: 10px;
   --border-radius: 44px;
