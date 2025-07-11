@@ -8,6 +8,7 @@ import { ROUTES } from "../../../../../routes/routes";
 import styles from "./WeatherCard.module.scss";
 
 interface WeatherProps {
+  index: number;
   time: string;
   icon: string;
   rainfall?: number;
@@ -16,54 +17,71 @@ interface WeatherProps {
   temperatureMax?: number;
   isCurrent: boolean;
   city: string;
+  isForecast?: boolean;
+  handleSelect?: (index: number) => void;
 }
 
 export const WeatherCard = ({
   isCurrent,
   city,
+  isForecast,
+  handleSelect,
   ...props
 }: WeatherProps): JSX.Element => {
+  const Content = (
+    <>
+      <p className={styles.info}>{props.time}</p>
+      <div className={styles.wrapper}>
+        <img
+          className={styles.icon}
+          src={`/src/assets/weather/${props.icon}.svg`}
+          alt="Weather"
+          onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = "src/assets/weather/w_2.svg";
+          }}
+        />
+        {props.rainfall && (
+          <p className={`${styles.info} ${styles.accent}`}>{props.rainfall}%</p>
+        )}
+      </div>
+      <div className={styles.temperature}>
+        {props.temperature && (
+          <p className={styles.infoTemperature}>
+            {props.temperature.toFixed(0)}°
+          </p>
+        )}
+        {props.temperatureMin && (
+          <p className={styles.infoTemperature}>
+            {props.temperatureMin.toFixed(0)}°
+          </p>
+        )}
+        {props.temperatureMax && (
+          <p className={styles.infoTemperature}>
+            {props.temperatureMax.toFixed(0)}°
+          </p>
+        )}
+      </div>
+    </>
+  );
   return (
     <li className={cl(styles.card, { [styles.current]: isCurrent })}>
-      <Link
-        className={styles.wrapper}
-        to={getRouteWithParams(ROUTES.FORECAST, "city", city)}
-      >
-        <p className={styles.info}>{props.time}</p>
-        <div className={styles.wrapper}>
-          <img
-            className={styles.icon}
-            src={`/src/assets/weather/${props.icon}.svg`}
-            alt="Weather"
-            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-              e.currentTarget.onerror = null;
-              e.currentTarget.src = "src/assets/weather/w_2.svg";
-            }}
-          />
-          {props.rainfall && (
-            <p className={`${styles.info} ${styles.accent}`}>
-              {props.rainfall}%
-            </p>
-          )}
-        </div>
-        <div className={styles.temperature}>
-          {props.temperature && (
-            <p className={styles.infoTemperature}>
-              {props.temperature.toFixed(0)}°
-            </p>
-          )}
-          {props.temperatureMin && (
-            <p className={styles.infoTemperature}>
-              {props.temperatureMin.toFixed(0)}°
-            </p>
-          )}
-          {props.temperatureMax && (
-            <p className={styles.infoTemperature}>
-              {props.temperatureMax.toFixed(0)}°
-            </p>
-          )}
-        </div>
-      </Link>
+      {isForecast ? (
+        <button
+          className={styles.wrapper}
+          onClick={() => handleSelect?.(props.index)}
+          type="button"
+        >
+          {Content}
+        </button>
+      ) : (
+        <Link
+          className={styles.wrapper}
+          to={getRouteWithParams(ROUTES.FORECAST, "city", city)}
+        >
+          {Content}
+        </Link>
+      )}
     </li>
   );
 };

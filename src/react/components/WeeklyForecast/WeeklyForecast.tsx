@@ -7,9 +7,15 @@ import { WeatherCard } from "../ui/WeatherCarousel/WeatherCard/WeatherCard";
 
 interface WeeklyForecastProps {
   city: string;
+  isForecast?: boolean;
+  handleSelectDay?: (index: number) => void;
 }
 
-export const WeeklyForecast = ({ city }: WeeklyForecastProps) => {
+export const WeeklyForecast = ({
+  city,
+  isForecast,
+  handleSelectDay,
+}: WeeklyForecastProps) => {
   const dailyWeather = useSelector(selectDaily);
 
   const nowTime = new Date();
@@ -29,17 +35,20 @@ export const WeeklyForecast = ({ city }: WeeklyForecastProps) => {
         return (
           <WeatherCard
             key={day}
+            index={index}
             time={formatted}
             icon={weatherIcon[dailyWeather.weathercode[index]]}
             rainfall={
               Number(dailyWeather.precipitation[index]) > 0
-                ? Number(dailyWeather.precipitation[index]) * 10
+                ? Number(dailyWeather.precipitation[index])
                 : undefined
             }
             temperatureMin={Number(dailyWeather.temperatureMin[index])}
             temperatureMax={Number(dailyWeather.temperatureMax[index])}
             isCurrent={parseInt(day.slice(-2)) === nowDay}
             city={city}
+            isForecast={isForecast}
+            handleSelect={handleSelectDay}
           />
         );
       })}

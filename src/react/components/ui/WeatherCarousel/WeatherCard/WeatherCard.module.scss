@@ -23,11 +23,17 @@
 }
 
 .wrapper {
+  @include reset-button;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  width: 100%;
   height: 100%;
+  text-align: center;
+  color: var(--primary-color-light);
+  cursor: pointer;
 }
 
 .card.current {

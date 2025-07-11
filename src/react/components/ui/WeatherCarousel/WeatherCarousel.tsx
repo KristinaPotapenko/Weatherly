@@ -9,11 +9,17 @@ import styles from "./WeatherCarousel.module.scss";
 interface WeatherCarouselProps {
   activeTab: number;
   city: string;
+  isForecast?: boolean;
+  handleSelectHour?: (index: number) => void;
+  handleSelectDay?: (index: number) => void;
 }
 
 export const WeatherCarousel = ({
   activeTab,
   city,
+  isForecast,
+  handleSelectHour,
+  handleSelectDay,
 }: WeatherCarouselProps): JSX.Element => {
   return (
     <AnimatePresence mode="wait">
@@ -26,9 +32,17 @@ export const WeatherCarousel = ({
         transition={{ duration: 0.4 }}
       >
         {activeTab === 0 ? (
-          <HourlyForecast city={city} />
+          <HourlyForecast
+            city={city}
+            isForecast={isForecast}
+            handleSelectHour={handleSelectHour}
+          />
         ) : (
-          <WeeklyForecast city={city} />
+          <WeeklyForecast
+            city={city}
+            isForecast={isForecast}
+            handleSelectDay={handleSelectDay}
+          />
         )}
       </motion.ul>
     </AnimatePresence>
