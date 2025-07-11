@@ -1,0 +1,64 @@
+@use "../../../styles/abstracts/media" as *;
+@use "../../../styles/abstracts/mixins" as *;
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding-bottom: 60px;
+
+  @include mobile {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.wrapper > :first-child {
+  @include mobile-above {
+    grid-column: span 2;
+  }
+}
+
+.info {
+  flex-grow: 1;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.description {
+  font-size: 16px;
+  color: var(--color-light-secondary);
+}
+
+.scale {
+  position: relative;
+  height: 6px;
+  margin-bottom: 30px;
+  background: linear-gradient(to right, #2c59ff, #ff4de2);
+  border-radius: 4px;
+}
+
+.pointer {
+  @include square(14px);
+
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--primary-color-light);
+  border-radius: 50%;
+  box-shadow: 0 0 14px var(--primary-color-light);
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.sunrice {
+  @include abs-center;
+
+  width: 100%;
+
+  svg {
+    overflow: visible;
+  }
+}
