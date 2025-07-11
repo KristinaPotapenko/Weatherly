@@ -56,7 +56,7 @@ const quality = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getQuality.fulfilled, (state, { payload }) => {
-      state.qualityEuropean = payload.european_aqi.slice(0, 24);
+      state.qualityEuropean = payload.european_aqi;
     });
   },
 });
