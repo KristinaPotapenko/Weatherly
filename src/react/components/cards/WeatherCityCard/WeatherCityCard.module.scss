@@ -72,7 +72,7 @@
 }
 
 .image {
-  @include square(260px);
+  @include square(220px);
 
   position: absolute;
   top: -70px;
@@ -81,14 +81,14 @@
   @include mobile {
     @include square(200px);
 
-    top: -20px;
+    top: -36px;
     right: 20px;
   }
 
   @include mobile-s {
-    @include square(160px);
+    @include square(140px);
 
     top: 0;
-    right: 0;
+    right: -10px;
   }
 }
