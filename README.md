@@ -1,69 +1,75 @@
-# React + TypeScript + Vite
+# ⛅ Weatherly — Weather Forecast Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Weatherly** is a modern and responsive web application for checking current weather and forecasts across cities worldwide. Built with **React**, **TypeScript**, and **Redux Toolkit**, it provides a clean and interactive interface for real-time weather updates, detailed forecasts, and location search.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 📍 **Home page** displays weather based on the user's **current geolocation**
+- 📅 **Forecast page** with multi-day forecast, hourly details, temperature, wind, precipitation, and more
+- 🔍 **Search page** to find and view weather for any city using geocoding
+- ⚡ **Smooth animations** and transitions between components
+- 📱 Fully **responsive design** for all devices
+- 📦 **Redux Toolkit** for global state management
+- ⚙️ **Axios** for async requests with loading states
+- 💾 Auto-save the last searched city in `localStorage`
+- 📊 Weather charts for temperature, wind, and pressure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🗂️ Page Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+| 📄 Page           | 🧩 Components                                                                |
+|------------------|------------------------------------------------------------------------------|
+| **🏠 Home**        | Current weather, Location info, Weather icons, Weather details      |
+| **📅 Forecast**    | Daily forecast, Hourly charts, Temperature, Wind, Precipitation...     |
+| **🔍 Search**      | Search field, City results, Selected city weather                   |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🌐 APIs Used
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- 📡 [Open-Meteo Weather API](https://api.open-meteo.com/v1/) — for current weather data and forecasts  
+- 🗺️ [Open-Meteo Geocoding API](https://geocoding-api.open-meteo.com/v1) — for converting city names to coordinates
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## ⚙️ Technologies Used
+
+- ⚛️ **React** + **TypeScript**
+- 📦 **Redux Toolkit**
+- 🎨 **SCSS** (modular styling)
+- 📡 **Axios** for HTTP requests
+- 🧭 **React Router DOM** for routing
+- 🎞 **Framer Motion** for animations
+- ⚙️ **React-Redux**, **classnames**, **react-dom**
+
+---
+
+## 🧭 Future Improvements
+
+- 🌒 Light/Dark theme toggle
+- 🗓️ Date selector for forecasts
+- 🔔 Alerts for sudden weather changes
+
+---
+
+## 📷 Preview
+
+![Weatherly Preview](https://github.com/KristinaPotapenko/Weatherly/blob/master/projectWeatherly.png)
+
+---
+
+## 📬 Contact
+
+Got questions or feedback? Feel free to reach out:  
+📧 [potapenkokristina10@gmail.com](mailto:potapenkokristina10@gmail.com)  
+🔗 [Telegram](https://t.me/kristina_potapenko)  
+🌐 [Live Demo](https://kristinapotapenko.github.io/Weatherly/)
+
+---
+
+## ⭐ Show Your Support
+
+If you like this project, please ⭐ it on [GitHub](https://github.com/KristinaPotapenko/Weatherly) and share it with others!
