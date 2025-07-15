@@ -57,7 +57,7 @@
 
 ## 📷 Preview
 
-![Weatherly Preview](https://github.com/KristinaPotapenko/Weatherly/blob/master/projectWeatherly.png)
+![Weatherly Preview](https://github.com/KristinaPotapenko/Weatherly/blob/main/projectWeatherly.png)
 
 ---
 
